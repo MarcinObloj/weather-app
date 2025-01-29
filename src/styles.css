@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+/* Domyślne style dla trybu jasnego */
+/* Style dla trybu ciemnego */
+/* Globalne style */
+.dark body {
+  background-color: #2d3748; /* bg-gray-800 */
+  color: white;
+}
+
+.dark .mat-icon-button .mat-icon[aria-hidden="true"] {
+  color: white !important;  /* Zastosowanie "important", jeśli Angular Material nadpisuje */
+}
+
+.mat-icon-button .mat-icon[aria-hidden="true"] {
+  color: black;  /* Standardowy kolor ikony */
+}
+
+
+@custom-variant dark (&:where(.dark, .dark *));

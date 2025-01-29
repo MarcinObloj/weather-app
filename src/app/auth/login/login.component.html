@@ -1,0 +1,45 @@
+<!-- filepath: /C:/Users/User/Desktop/htdocs/weather-app5/src/app/auth/login/login.component.html -->
+<div class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-500 to-blue-700 dark:from-gray-800 dark:to-gray-900 text-white px-6 text-center">
+  <div class="w-full max-w-md bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md dark:shadow-lg">
+    <h2 class="text-2xl font-bold text-center text-gray-700 dark:text-gray-300 mb-6">Login</h2>
+    <form (ngSubmit)="onLogin()">
+      <div class="mb-4">
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Wpisz nazwe uzytkownika</mat-label>
+          <input
+            matInput
+            id="username"
+            placeholder="Placeholder"
+            [(ngModel)]="username"
+            name="username"
+            required
+          />
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint>Wpisz swoją nazwe użytkownika</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="mb-4">
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Wpisz hasło</mat-label>
+          <input
+            matInput
+            type="password"
+            id="password"
+            placeholder="Marcix.222"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-hint>Wpisz swoje haslo</mat-hint>
+        </mat-form-field>
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-800 dark:hover:bg-blue-900 text-white font-semibold py-3 rounded-md shadow-md transition duration-200"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>
