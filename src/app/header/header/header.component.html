@@ -1,4 +1,4 @@
-<header class="bg-blue-600 dark:bg-gray-800 text-white py-4 shadow-md">
+<header class="bg-blue-600 dark:bg-gray-800 text-white py-4 shadow-md sticky ">
   <div class="container mx-auto flex justify-between items-center px-4">
     <!-- Logo and Application Name -->
     <div class="flex items-center space-x-2">
@@ -8,10 +8,18 @@
       </a>
     </div>
 
+    <!-- Navigation Links -->
+
     <!-- Theme Toggle Menu -->
     <div class="flex items-center space-x-2">
+      <div class="flex items-center space-x-4">
+        <a routerLink="/login" class="text-white hover:text-gray-300">Login</a>
+        <a routerLink="/register" class="text-white hover:text-gray-300"
+          >Register</a
+        >
+      </div>
       <button mat-icon-button [matMenuTriggerFor]="themeMenu">
-        <mat-icon style="color: white;">settings</mat-icon>
+        <mat-icon style="color: white">settings</mat-icon>
       </button>
       <mat-menu #themeMenu="matMenu">
         <button mat-menu-item (click)="setTheme('light')">

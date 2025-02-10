@@ -10,7 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 @Component({
   selector: 'app-header',
   imports: [
@@ -19,6 +20,8 @@ import { RouterLink } from '@angular/router';
     CommonModule,
     MatButtonModule,
     MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',

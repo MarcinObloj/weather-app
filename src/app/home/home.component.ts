@@ -18,6 +18,6 @@ export class HomeComponent {
         duration: 1.2,
         ease: 'power3.out',
       });
-    }, 600); // Możesz spróbować zmienić to opóźnienie, np. 200ms
+    }, 600);
   }
 }
