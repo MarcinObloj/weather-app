@@ -4,10 +4,11 @@ import { CitiesService } from '../weather/cities.service';
 import { City } from '../model/city.model';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cities',
-  imports: [MatIconModule, CommonModule],
+  imports: [MatIconModule, CommonModule,RouterLink],
   templateUrl: './cities.component.html',
   styleUrls: ['./cities.component.css'],
 })
@@ -59,7 +60,7 @@ export class CitiesComponent implements OnInit {
         .addCityToObserved(userId, city.id.toString())
         .subscribe({
           next: () => {
-            this.loadObservedCities(userId); // Załaduj ponownie obserwowane miasta
+            this.loadObservedCities(userId);
           },
           error: (error) => console.error('Error:', error),
         });
