@@ -1,17 +1,13 @@
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../auth/auth.service';
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  HostBinding,
-  Inject,
-  OnInit,
-  PLATFORM_ID,
-} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenu, MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+
 @Component({
   selector: 'app-header',
   imports: [
@@ -21,20 +17,30 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule,
     MatMenuModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   currentTheme: string;
+  authService = inject(AuthService);
+  isLoggedIn$ = this.authService.isLoggedIn;
+  isMobileMenuOpen = false;
 
   constructor() {
     this.currentTheme = localStorage.getItem('theme') || 'system';
     this.applyTheme(this.currentTheme);
   }
 
-  ngOnInit(): void {}
+  logout(): void {
+    this.authService.logout();
+    this.isMobileMenuOpen = false; 
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 
   setTheme(theme: string): void {
     this.currentTheme = theme;

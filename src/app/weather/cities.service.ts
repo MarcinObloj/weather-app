@@ -12,7 +12,7 @@ export class CitiesService {
   private http = inject(HttpClient);
 
   private getAuthHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     if (!token) {
       throw new Error('User not logged in');
     }
