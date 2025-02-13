@@ -5,10 +5,14 @@ import { City } from '../model/city.model';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { CityFilterPipe } from '../city-filter.pipe';
+import { FormsModule } from '@angular/forms';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-cities',
-  imports: [MatIconModule, CommonModule,RouterLink],
+  imports: [MatIconModule, CommonModule,RouterLink,CityFilterPipe,FormsModule,MatFormField,MatInputModule],
   templateUrl: './cities.component.html',
   styleUrls: ['./cities.component.css'],
 })
@@ -17,7 +21,7 @@ export class CitiesComponent implements OnInit {
   observedCities: City[] = [];
   citiesService = inject(CitiesService);
   changeDetectorRef = inject(ChangeDetectorRef);
-
+  searchText: string = '';
   ngOnInit(): void {
     const userId = localStorage.getItem('userId');
     if (userId) {

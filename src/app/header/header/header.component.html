@@ -2,7 +2,6 @@
   class="bg-blue-600 dark:bg-gray-800 text-white py-6 shadow-md sticky top-0 z-50"
 >
   <div class="container mx-auto flex justify-between items-center px-4">
- 
     <div class="flex items-center space-x-2">
       <a routerLink="/" class="flex items-center space-x-2">
         <mat-icon>sunny</mat-icon>
@@ -10,37 +9,26 @@
       </a>
     </div>
 
-    <button class="md:hidden" (click)="toggleMobileMenu()">
-      <mat-icon>menu</mat-icon>
-    </button>
-
     <div class="hidden md:flex items-center space-x-4">
-      @if(isLoggedIn$ | async){
-      <a
-        routerLink="/observed-cities"
-        class="text-white hover:text-gray-300 py-2"
-        >Observed Cities</a
-      >
-      <a routerLink="/cities" class="text-white hover:text-gray-300 py-2"
-        >All Cities</a
-      >
-      <a
-        (click)="logout()"
-        class="text-white hover:text-gray-300 cursor-pointer py-2"
-        >Logout</a
-      >
-      } @else{
-      <a routerLink="/login" class="text-white hover:text-gray-300">Login</a>
-      <a routerLink="/register" class="text-white hover:text-gray-300"
-        >Register</a
-      >}
-
+      @if (isLoggedIn$ | async) {
+        <a routerLink="/profile" class="flex items-center space-x-2">
+          <img
+            [src]="'default-avatar.png'"
+            alt="User Avatar"
+            class="w-10 h-10 rounded-full border border-gray-300"
+          />
+        </a>
+        <a (click)="logout()" class="text-white hover:text-gray-300 cursor-pointer">Logout</a>
+      } @else {
+        <a routerLink="/login" class="text-white hover:text-gray-300">Login</a>
+        <a routerLink="/register" class="text-white hover:text-gray-300">Register</a>
+      }
       <button mat-icon-button [matMenuTriggerFor]="themeMenu">
         <mat-icon style="color: white">settings</mat-icon>
       </button>
     </div>
+    
   </div>
-
 
   <div
     [ngClass]="{
@@ -50,19 +38,9 @@
     class="md:hidden bg-blue-700 dark:bg-gray-900 text-white px-4 py-4 space-y-2 text-center transform transition-all duration-300 ease-in-out"
     [style.transform]="isMobileMenuOpen ? 'translateY(0)' : 'translateY(-100%)'"
   >
-    @if (isLoggedIn$ | async) {<a
-      routerLink="/observed-cities"
-      class="block hover:text-gray-300 py-2"
-      >Observed Cities</a
-    >
-    <a routerLink="/cities" class="block hover:text-gray-300 py-2"
-      >All Cities</a
-    >
-    <a (click)="logout()" class="block hover:text-gray-300 cursor-pointer py-2"
-      >Logout</a
-    >} @else {<a routerLink="/login" class="block hover:text-gray-300">Login</a>
-    <a routerLink="/register" class="block hover:text-gray-300">Register</a>}
-
+    <a routerLink="/profile" class="block hover:text-gray-300 py-2">
+      Profile
+    </a>
     <button mat-icon-button [matMenuTriggerFor]="themeMenu" class="text-white">
       <mat-icon style="color: white">settings</mat-icon>
     </button>

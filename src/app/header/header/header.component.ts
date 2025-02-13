@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -27,7 +27,8 @@ export class HeaderComponent {
   authService = inject(AuthService);
   isLoggedIn$ = this.authService.isLoggedIn;
   isMobileMenuOpen = false;
-
+  
+  router =inject(Router);
   constructor() {
     this.currentTheme = localStorage.getItem('theme') || 'system';
     this.applyTheme(this.currentTheme);
@@ -36,6 +37,8 @@ export class HeaderComponent {
   logout(): void {
     this.authService.logout();
     this.isMobileMenuOpen = false; 
+    this.router.navigate(['/']);  
+
   }
 
   toggleMobileMenu() {
