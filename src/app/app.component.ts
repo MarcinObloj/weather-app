@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { HeaderComponent } from './shared/header/header.component';
 
-import { HeaderComponent } from './header/header/header.component';
+
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, MatSlideToggleModule, HeaderComponent],
@@ -11,5 +13,4 @@ import { HeaderComponent } from './header/header/header.component';
 })
 export class AppComponent {
   title = 'weather-app3';
- 
 }

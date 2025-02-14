@@ -8,5 +8,6 @@ export const routes: Routes = [
     { path: 'observed-cities', loadComponent: () => import('./weather/observed-cities/observed-cities.component').then(m => m.ObservedCitiesComponent) },
     { path: 'register', loadComponent: () => import('./auth/register/register.component').then(m => m.RegisterComponent) },
     { path: 'city-chart/:id', component: CityChartComponent },
-    {path: 'profile', loadComponent: () => import ('./weather/observed-cities/profile/profile.component').then(m => m.ProfileComponent)}
+    {path: 'profile', loadComponent: () => import ('./weather/observed-cities/profile/profile.component').then(m => m.ProfileComponent)},
+    {path: 'change-avatar', loadComponent: () => import ('./weather/observed-cities/profile/change-avatar/change-avatar.component').then(m => m.AvatarChangeComponent)}
 ];

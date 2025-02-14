@@ -1,7 +1,7 @@
 // filepath: /C:/Users/User/Desktop/htdocs/weather-app5/src/app/cities/cities.component.ts
 import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
-import { CitiesService } from '../weather/cities.service';
-import { City } from '../model/city.model';
+import { CitiesService } from '../weather/services/cities.service';
+import { City } from '../models/city.model';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -12,7 +12,15 @@ import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-cities',
-  imports: [MatIconModule, CommonModule,RouterLink,CityFilterPipe,FormsModule,MatFormField,MatInputModule],
+  imports: [
+    MatIconModule,
+    CommonModule,
+    RouterLink,
+    CityFilterPipe,
+    FormsModule,
+    MatFormField,
+    MatInputModule,
+  ],
   templateUrl: './cities.component.html',
   styleUrls: ['./cities.component.css'],
 })
