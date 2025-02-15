@@ -7,31 +7,24 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: white;
+  color: black;
 }
-/* Domyślne style dla trybu jasnego */
-/* Style dla trybu ciemnego */
-/* Globalne style */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
 .dark body {
-  background-color: #2d3748; /* bg-gray-800 */
+  background-color: #2d3748;
   color: white;
 }
 
 .dark .mat-icon-button .mat-icon[aria-hidden="true"] {
-  color: white !important;  /* Zastosowanie "important", jeśli Angular Material nadpisuje */
+  color: white !important;
 }
 
 .mat-icon-button .mat-icon[aria-hidden="true"] {
-  color: black;  /* Standardowy kolor ikony */
+  color: black;
 }
-
 
 @custom-variant dark (&:where(.dark, .dark *));
-body {
-  background-color: white; /* Ensure the default background color is white */
-  color: black; /* Ensure the default text color is black */
-}
-
-body.dark-mode {
-  background-color: #121212; /* Dark mode background color */
-  color: white; /* Dark mode text color */
-}
